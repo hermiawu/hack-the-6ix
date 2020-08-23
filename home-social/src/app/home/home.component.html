@@ -1,1 +1,7 @@
-<p>home works!</p>
+<mat-card class="home-area">
+    <gridster [options]="options" class="grid-area">
+        <gridster-item [item]="item" *ngFor="let item of dashboard" class="grid-item">
+            <app-room-item></app-room-item>
+        </gridster-item>
+    </gridster>
+</mat-card>

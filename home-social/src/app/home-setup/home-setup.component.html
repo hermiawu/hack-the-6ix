@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <img src="../../assets/svgs/logo.svg" class="logo">
+</div>
+
+<h1>Home Set Up</h1>
+<mat-card class="set-up">
+    <mat-list fxLayout="column" fxLayoutAlign="space-between">
+        <mat-list-item class="item" *ngFor=" let item of setupItems" fxLayout="row" fxLayoutAlign="space-between">
+            <div>
+                <img class="item-image" src="{{item.imagePath}}">
+                <span class="caption">{{item.name}}</span>
+            </div>
+            <mat-icon class="fas fa-times" style="margin-left: 30px;"></mat-icon>
+            <div class="number-input" fxLayout="row" fxLayoutAlign="start">
+                <button mat-icon-button (click)="decreaseItem(item)">
+                    <mat-icon class="fas fa-minus"></mat-icon>
+                </button>
+                <span class="number-box">{{item.amount}}</span>
+                <button mat-icon-button (click)="increaseItem(item)">
+                    <mat-icon class="fas fa-plus"></mat-icon>
+                </button>
+            </div>
+
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+<div fxLayout="row" fxLayoutAlign="space-around center" style="padding-top: 7px; ">
+
+    <button mat-flat-button routerLink="/home" style="background-color: #BADCF6;">Complete</button>
+</div>

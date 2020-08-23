@@ -1,0 +1,23 @@
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+    <button mat-icon-button mat-dialog-close>
+        <mat-icon class="fas fa-times"></mat-icon>
+    </button>
+</div>
+<h1 mat-dialog-title>Congratulations !</h1>
+<div mat-dialog-content fxLayout="row" fxLayoutAlign="start">
+
+    <div>
+        <img src="{{currentUser.profilePath}}" class="user-profile">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="sp">
+        <div>{{currentUser.name}}</div>
+        <div>
+            <P>Let's Set Up</P>
+            <p>
+                <ngx-emoji emoji="house" size="16"></ngx-emoji>
+                HOME
+            </p>
+            <p>NOW</p>
+        </div>
+    </div>
+</div>

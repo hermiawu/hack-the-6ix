@@ -1,0 +1,22 @@
+.bottom-bar {
+    display: flex; justify-content: space-around; align-items: center;
+    z-index: 2;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    background-color: #BADCF6;
+  }
+
+.top-bar {
+    position: relative;
+top:30px;
+left: 0;
+width: 100%;
+background-color: #FFFFFF
+}
+
+.active-item {
+    background-color: #0074AA !important;
+    color: white !important;
+}

@@ -1,1 +1,33 @@
-<p>login works!</p>
+<form class="login-form">
+    <div fxLayout="column" fxLayoutAlign="space-between center">
+        <img src="../../assets/svgs/login.svg" class="profile">
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="row">
+            <mat-icon class="fas fa-envelope left-icon"></mat-icon>
+            <mat-form-field appearance="outline">
+                <input matInput class="form-control" placeholder="Username" [(ngModel)]="username" name="username"
+                    required>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-icon class="fas fa-unlock-alt left-icon"></mat-icon>
+            <mat-form-field appearance="outline">
+                <input matInput class="form-control" placeholder="Password" [type]="hide ? 'password' : 'text'"
+                    [(ngModel)]="password" name="password" required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+        </div>
+        <mat-error *ngIf="loginInvalid"> Invalid username or password.</mat-error>
+        <mat-checkbox>Remember Me</mat-checkbox>
+
+        <div fxLayout="row" fxLayoutAligh="spacebetween" fxLayoutGap="15px">
+            <button mat-flat-button color="primary" (click)="login()">Login</button>
+            <button mat-flat-button color="primary" routerLink="/signup">Sign Up</button>
+        </div>
+        <a href="">Forget Password?</a>
+    </div>
+</form>
+<div class="svg">
+    <img src="../../assets/svgs/logo.svg">
+</div>

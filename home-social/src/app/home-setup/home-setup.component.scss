@@ -1,0 +1,30 @@
+.logo {
+    height: 74px;
+    margin-top: 42px;
+}
+
+.set-up {
+    height: calc(100vh - 300px);
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: auto;
+    background-color: rgba($color: #8AA6B3, $alpha: 0.3);
+    
+}
+
+mat-list-item.mat-list-item {
+    height: 115px;
+}
+.item-image {
+    width: 90px;
+}
+.caption {
+    display: block;
+    text-align: center;
+    margin-top: -5px;
+    font-size: 15px;
+}
+
+.mat-dialog-container{
+    background: #BADCF6;
+  }

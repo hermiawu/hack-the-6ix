@@ -1,0 +1,59 @@
+<form class="login-form">
+
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <img src="../../assets/svgs/logo.svg" class="logo">
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="16px">
+            <button mat-flat-button class="fab-button" color="accent">
+                <mat-icon class="fas fa-arrow-left"></mat-icon>
+            </button>
+            <img src="../../assets/svgs/profilePic.svg">
+            <button mat-flat-button class="fab-button" color="accent">
+                <mat-icon class="fas fa-arrow-right"></mat-icon>
+            </button>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <button mat-icon-button color="A4CAED" (click)="selectMale()" [class.male]="!isFemale">
+                <mat-icon class="fas fa-male"></mat-icon>
+            </button>
+            <button mat-icon-button color="A4CAED" (click)="selectFemale()" [class.female]="isFemale">
+                <mat-icon class="fas fa-female"></mat-icon>
+            </button>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start center">
+            <div fxLayout="row">
+                <mat-icon class="fas fa-user left-icon"></mat-icon>
+                <mat-form-field appearance="outline">
+                    <input matInput class="form-control" placeholder="Username" [(ngModel)]="username" name="username"
+                        required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-icon class="fas fa-envelope left-icon"></mat-icon>
+                <mat-form-field appearance="outline">
+                    <input matInput class="form-control" placeholder="Email" [(ngModel)]="email" name="email" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-icon class="fas fa-unlock-alt left-icon"></mat-icon>
+                <mat-form-field appearance="outline">
+                    <input matInput class="form-control" placeholder="Password" [type]="hide ? 'password' : 'text'"
+                        [(ngModel)]="password" name="password" required>
+                </mat-form-field>
+            </div>
+            <button mat-flat-button color="primary" (click)="login()">Sign Up</button>
+        </div>
+    </div>
+</form>
+
+<hr style="width:245px; text-align: center; margin-top: 19px;">
+<p style="text-align: center;">OR Connect With</p>
+<div fxLayout="row" fxLayoutAlign="space-around" fxLayoutGap="20px">
+    <img src="../../assets/svgs/twitter.svg">
+    <img src="../../assets/svgs/facebook.svg">
+</div>
+<div class="svg">
+    <img src="../../assets/svgs/bottomPic.svg">
+</div>
