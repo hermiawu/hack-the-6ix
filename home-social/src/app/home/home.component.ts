@@ -42,8 +42,8 @@ export class HomeComponent implements OnInit {
       mobileBreakpoint: 200,
       minCols: 4,
       maxCols: 4,
-      minRows: 6,
-      maxRows: 6,
+      minRows: 8,
+      maxRows: 8,
       maxItemCols: 4,
       minItemCols: 1,
       maxItemRows: 6,
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
         enabled: true,
       },
       resizable: {
-        enabled: true,
+        enabled: false,
       },
       swap: false,
       pushItems: true,
@@ -84,13 +84,12 @@ export class HomeComponent implements OnInit {
     };
 
     this.dashboard = [
-      { cols: 2, rows: 2, y: 0, x: 0, id: 1 },
+      { cols: 1, rows: 1, y: 0, x: 0, id: 1 },
       { cols: 2, rows: 2, y: 0, x: 2, id: 2 },
-
-      { cols: 2, rows: 1, y: 1, x: 0, id: 3 },
-      { cols: 2, rows: 1, y: 1, x: 0, id: 4 },
-      { cols: 2, rows: 1, y: 2, x: 2, id: 5 },
-
+      { cols: 2, rows: 2, y: 1, x: 0, id: 3 },
+      { cols: 2, rows: 2, y: 1, x: 0, id: 4 },
+      { cols: 2, rows: 2, y: 2, x: 2, id: 5 },
+      { cols: 1, rows: 1, y: 2, x: 2, id: 6 },
     ];
   }
 }

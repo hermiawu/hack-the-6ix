@@ -4,6 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { HttpClientHelperService } from './web/http-client-helper.service';
 import { HomeService } from './home/home.service';
+import { RoomService } from './room/room.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
   providers: [
     AuthService,
     HttpClientHelperService,
+    RoomService,
     HomeService,
     {
       provide: HTTP_INTERCEPTORS,
