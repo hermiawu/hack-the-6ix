@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { SetupItem } from '../models/setup-item';
 import { MatDialog } from '@angular/material/dialog';
 import { WelcomeDialogComponent } from '../welcome-dialog/welcome-dialog.component';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-home-setup',
@@ -10,7 +11,7 @@ import { WelcomeDialogComponent } from '../welcome-dialog/welcome-dialog.compone
 })
 export class HomeSetupComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private authService: AuthService) { }
 
   setupItems: SetupItem[] = [
     {
@@ -47,8 +48,10 @@ export class HomeSetupComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('home');
+    const userName = this.authService.getCurrentUser().name;
     this.dialog.open(WelcomeDialogComponent, {
-      panelClass: 'welcome-dialog'
+      panelClass: 'welcome-dialog',
+      data: { name: userName }
     });
   }
 

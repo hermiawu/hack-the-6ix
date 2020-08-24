@@ -38,5 +38,10 @@ $home-social-theme: mat-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Roboto", sans-serif; }
+h1 {
+  font-family: "Josefin Sans";
+}
 
-
+.mat-flat-button {
+  color: #A4CAED;
+}

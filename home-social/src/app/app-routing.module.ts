@@ -12,37 +12,42 @@ import { InfoBoardComponent } from './info-board/info-board.component';
 import { RoommateListComponent } from './roommate-list/roommate-list.component';
 import { HomeSetupComponent } from './home-setup/home-setup.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, ResourceGuard],
     children: [
+
       {
         path: 'home',
         component: HomeComponent,
+        canActivate: [AuthGuard, ResourceGuard],
         data: { title: 'Home' }
       },
       {
         path: 'logout',
         component: LogoutComponent,
+        canActivate: [AuthGuard, ResourceGuard],
         data: { title: 'Logout' }
       },
       {
         path: 'chat',
         component: ChatComponent,
+        canActivate: [AuthGuard, ResourceGuard],
         data: { title: 'Chat' }
       },
       {
         path: 'board',
         component: InfoBoardComponent,
+        canActivate: [AuthGuard, ResourceGuard],
         data: { title: 'Info Board' }
       },
       {
-        path: 'roomate',
+        path: 'roommates',
         component: RoommateListComponent,
-        data: { title: 'Roomate List' }
+        canActivate: [AuthGuard, ResourceGuard],
+        data: { title: 'Roommate List' }
       },
 
 
@@ -67,7 +72,7 @@ const routes: Routes = [
       {
         path: 'setup',
         component: HomeSetupComponent,
-        canActivate: [ResourceGuard],
+        canActivate: [AuthGuard, ResourceGuard],
         data: { title: 'Home Setup' }
       },
 
@@ -81,7 +86,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
+  color = '#A4CAED';
   username: string;
   password: string;
   email: string;
@@ -34,6 +35,12 @@ export class SignUpComponent implements OnInit {
 
   login(): void {
     this.router.navigate(['/home']);
+  }
+
+  signUp(): void {
+    this.authService.inMemorySignUp(this.username, this.email, this.password);
+    this.router.navigate(['/setup']);
+
   }
 
 }

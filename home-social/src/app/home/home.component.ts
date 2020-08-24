@@ -10,26 +10,39 @@ import {
   DisplayGrid,
   GridsterConfig,
   GridsterItem,
-  GridType
+  GridType,
+  GridsterItemComponentInterface
 } from 'angular-gridster2';
+import { RoomService } from '../services/room/room.service';
+import { Room } from '../models/room';
+import { HomeService } from '../services/home/home.service';
 
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
 
-  options: GridsterConfig;
-  dashboard: Array<GridsterItem>;
-  constructor() {
+
+  constructor(
+    public roomService: RoomService,
+  ) {
 
   }
 
+  options: GridsterConfig;
+  dashboard: GridsterItem[] = [];
+  currentRooms: Room[];
+  selectedRoomId = 0;
+
   ngOnInit(): void {
     this.options = {
+      itemChangeCallback: this.updateItems,
       gridType: GridType.Fit,
       compactType: CompactType.None,
       margin: 10,
@@ -83,14 +96,33 @@ export class HomeComponent implements OnInit {
       scrollToNewItems: false
     };
 
-    this.dashboard = [
-      { cols: 1, rows: 1, y: 0, x: 0, id: 1 },
-      { cols: 2, rows: 2, y: 0, x: 2, id: 2 },
-      { cols: 2, rows: 2, y: 1, x: 0, id: 3 },
-      { cols: 2, rows: 2, y: 1, x: 0, id: 4 },
-      { cols: 2, rows: 2, y: 2, x: 2, id: 5 },
-      { cols: 1, rows: 1, y: 2, x: 2, id: 6 },
-    ];
+    this.currentRooms = this.roomService.getAllRooms();
+    console.log(this.currentRooms);
+    this.currentRooms.forEach(room => {
+      const gridItem: GridsterItem = {
+        cols: room.size,
+        rows: room.size,
+        y: 0,
+        x: 0,
+        id: room.id
+      };
+      this.dashboard.push(gridItem);
+    });
+  }
+
+  updateItems(item: GridsterItem, itemComponent: GridsterItemComponentInterface): void {
+    console.log(item);
+    this.selectedRoomId = item.id;
+    // var updatedRoom = this.roomService.rooms[item.Id - 1];
+    // updatedRoom.x = item.x;
+    // updatedRoom.y = item.y;
+    // console.log(updatedRoom);
+    // this.roomService.updateRoom(updatedRoom);
+
+  }
+
+  changedOptions() {
+    this.options.api.optionsChanged();
   }
 }
 

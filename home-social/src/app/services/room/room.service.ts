@@ -6,36 +6,60 @@ import { Room } from '../../models/room';
 })
 export class RoomService {
 
-  rooms: Room[] = [
+  public rooms: Room[] = [
     {
       id: 1,
       type: 'laundry',
       name: 'laundry 1',
-      isBookable: true
+      isBookable: true,
+      size: 1,
+      x: 0,
+      y: 0,
     },
     {
       id: 2,
       type: 'bedroom',
       name: 'Celine',
-      isBookable: false
+      isBookable: false,
+      size: 2,
+      x: 0,
+      y: 0,
     },
     {
       id: 3,
-      type: 'kitchen',
-      name: 'kitchen',
-      isBookable: true
+      type: 'bedroom',
+      name: 'bedroom 2',
+      isBookable: false,
+      size: 2,
+      x: 0,
+      y: 0,
     },
     {
       id: 4,
-      type: 'livingroom',
-      name: 'living',
-      isBookable: true
+      type: 'bathroom',
+      name: 'bathroom',
+      isBookable: false,
+      size: 1,
+      x: 0,
+      y: 0,
     },
     {
       id: 5,
-      type: 'bedroom',
-      name: 'Hao',
-      isBookable: true
+      type: 'kitchen',
+      name: 'kitchen',
+      isBookable: true,
+      size: 2,
+      x: 0,
+      y: 0,
+    },
+    {
+      id: 6,
+      type: 'livingroom',
+      name: 'livingroom',
+      isBookable: true,
+      size: 3,
+      x: 0,
+      y: 0,
     }
   ];
   constructor() { }
@@ -45,7 +69,40 @@ export class RoomService {
   }
 
   getRoomInfo(id: number): Room {
-    return this.rooms[id - 1];
+    var findItem = new Room();
+    this.rooms.forEach(element => {
+      if (id === element.id) {
+        findItem = element;
+      }
+    });
+    return findItem;
+  }
+
+  addRoom(room: Room): void {
+    if (room.type === 'laundry' || room.type === 'bathroom') {
+      room.size = 1;
+      room.x = 0;
+      room.y = 0;
+    }
+    else if (room.type === 'kitchen' || room.type === 'livingroom') {
+      room.size = 3;
+      room.x = 0;
+      room.y = 0;
+    }
+    else {
+      room.size = 2;
+      room.x = 0;
+      room.y = 0;
+    }
+    this.rooms.push(room);
+  }
+
+  updateRoom(room: Room) {
+    this.rooms.forEach(element => {
+      if (room.id === element.id) {
+        element = room;
+      }
+    });
   }
 
 }

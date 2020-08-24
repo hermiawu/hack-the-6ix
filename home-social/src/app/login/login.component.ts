@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   password: string;
   hide = true;
   loginInvalid: boolean;
+  color = '#A4CAED';
 
   constructor(
     private authService: AuthService,

@@ -22,8 +22,9 @@
         <mat-checkbox>Remember Me</mat-checkbox>
 
         <div fxLayout="row" fxLayoutAligh="spacebetween" fxLayoutGap="15px">
-            <button mat-flat-button color="primary" (click)="login()">Login</button>
-            <button mat-flat-button color="primary" routerLink="/signup">Sign Up</button>
+            <button mat-flat-button color="primary" [style.background-color]="color" (click)="login()">Login</button>
+            <button mat-flat-button color="primary" [style.background-color]="color" routerLink="/signup">Sign
+                Up</button>
         </div>
         <a href="">Forget Password?</a>
     </div>
